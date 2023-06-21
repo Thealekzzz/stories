@@ -10,8 +10,8 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Main/>} />
-        <Route path="/about" element={<Description/>} />
+        <Route path="stories" element={<Main/>} />
+        <Route path="stories/about" element={<Description/>} />
       </Routes>
     </BrowserRouter>
   )
