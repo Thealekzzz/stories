@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from "./Main.module.css";
 import closeIcon from "../../images/close.svg";
 
-import stories from "../../data/stories";
+import stories from "../../data/stories.js";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { Link } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const Main = () => {
   const currentStory = stories[currentStoryNumber];
   const currentChapter = currentStory?.chapters?.[currentChapterNumber];
 
-  function handleStoryClick(story, storyNumber) {
+  function handleStoryClick(storyNumber) {
     setCurrentStoryNumber(storyNumber);
     setCurrentChapterNumber(0);
     setIsPopupOpen(true);
@@ -134,7 +134,7 @@ const Main = () => {
         <ul className={styles['storiesList']}>
           {stories.map((story, index) => {
             return (
-              <li key={index} className={styles['story']} onClick={() => handleStoryClick(story, index)}>
+              <li key={index} className={styles['story']} onClick={() => handleStoryClick(index)}>
                 <img src={require("../../images/previewImages/" + story.image)} alt="" className={styles['storyImage']} />
                 <p className={styles['storyName']}>{story.name}</p>
               </li>
